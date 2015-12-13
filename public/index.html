@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Running Boy</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<style>
+	.button {
+    display: block;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    margin: 16px 2px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    color: #eee;
+	}
+
+	.fail_mask {
+		width: 600px;
+		height: 200px;
+		background: #000;
+		opacity: 0.7
+	}
+	.fail_logo {
+		position: absolute;
+		z-index: 100;
+		width: 220px;
+		height: 100px;
+		top: 53px;
+		left: 150px;
+		background-image: url('assets/game.png');
+		background-position: 0 -1760px;
+	}
+
+	@media screen and (max-width: 800px) {
+		#main { transform: rotate(90deg);}
+	}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+	<!-- <script type="text/javascript" src="assets/bundle.js"></script> -->
+	<script type="text/javascript" src="http://localhost:9000/bundle.js"></script>
+</body>
+</html>
