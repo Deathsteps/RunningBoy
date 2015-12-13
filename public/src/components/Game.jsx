@@ -24,8 +24,8 @@ class Game extends React.Component {
 			<Layout>
 				<Road v={this.state.v} sprites={this.state.sprites} gameStatus={this.state.status}/>
 				<Obstacle v={this.state.v} sprites={this.state.sprites} gameStatus={this.state.status}/>
-				<Boy v={this.state.v} sprites={this.state.sprites} gameStatus={this.state.status}/>
-				<Controller v={this.state.v} role="Boy" gameStatus={this.state.status} />
+				<Girl v={this.state.v} sprites={this.state.sprites} gameStatus={this.state.status}/>
+				<Controller v={this.state.v} role="Girl" gameStatus={this.state.status} />
 			</Layout>;
 
 		var failLayout = 

@@ -8,13 +8,14 @@ const MOVE_START = require('../constants').MOVE_START;
 class Boy extends React.Component {
 	constructor(props){
 		super(props);
-		this.state = ParameterStore.getBoy();
+		this.state = Object.assign({}, ParameterStore.getBoy());
 
 		ParameterStore.on('change-Boy', (newState) => {
 			if(newState.jumping !== undefined)
 				this.setState(newState);
 		});
 		ParameterStore.on('reset-Boy', () => {
+			this.state = Object.assign({}, ParameterStore.getBoy());
 			this.forceUpdate();
 			this.componentDidMount();
 		});
@@ -38,7 +39,10 @@ class Boy extends React.Component {
 	}
 
 	shouldComponentUpdate (nextProps, nextState){
-		return this.update(nextProps, nextState), false;
+		if(nextProps.gameStatus !== this.props.gameStatus ||
+			nextState.jumping !== this.state.jumping)
+			return this.update(nextProps, nextState), false;
+		return true;
 	}
 
 	update(nextProps, nextState){
@@ -83,6 +87,7 @@ class Boy extends React.Component {
 			 	
 			 	var y = top - 3*index*(8 - index);
 			  this.refs.boy.style.top = y + 'px';
+			  this.state.y = y;
 			  ParameterStore.setBoy({y: y});
 
 			  if(++index > 8){

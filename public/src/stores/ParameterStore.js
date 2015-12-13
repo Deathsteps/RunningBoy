@@ -5,9 +5,10 @@ var EventEmitter = require('events').EventEmitter;
 const MOVE_STOP  = require('../constants').MOVE_STOP;
 const MOVE_START = require('../constants').MOVE_START;
 
+// Mutable data is awful. Changes on state are easily set back to the original data.
 var data = {
 	Boy: {x: 30, y: 40, vOffset: 0, frameIndex: 0, jumpIndex: 1, jumping: false},
-	Girl: {x: 160, y: 70, vOffset: 0, frameIndex: 0},
+	Girl: {defaultY: 40, x: 30, y: 40, vOffset: 0, frameIndex: 0, jumpIndex: 1, jumping: false},
 	Road: {w: 510, h: 154, l: 510/10, t: 0, f: 0},
 	Obstacle: {defaultX: 440, x: 440, y: 100, display: 'block', i: 0}
 };

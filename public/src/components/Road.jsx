@@ -9,8 +9,10 @@ class Road extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = ParameterStore.getRoad();
-		ParameterStore.on('reset-Road', 
-			()=>this.setState(ParameterStore.getRoad()));
+		ParameterStore.on('reset-Road', ()=> {
+			this.state = ParameterStore.getRoad();
+			this.componentDidMount()
+		});
 	}
 
 	render(){

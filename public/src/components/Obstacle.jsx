@@ -51,10 +51,11 @@ class Obstacle extends React.Component {
 	}
 
 	randomMove(){
-		setTimeout(() => {
-			this.setState({display: 'block'});
-			this.move();	
-		}, (Math.random() + 1) * 3000);
+		this._randomTimer =
+			setTimeout(() => {
+				this.setState({display: 'block'});
+				this.move();
+			}, (Math.random() + 1) * 3000);
 	}
 
 	move(){
@@ -78,6 +79,7 @@ class Obstacle extends React.Component {
 
 	stop(){
 		clearInterval(this._timer);
+		clearTimeout(this._randomTimer);
 	}
 }
 
